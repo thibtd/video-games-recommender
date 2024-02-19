@@ -86,8 +86,8 @@ def VideoGameRecommender(video_game_name, df_2024, vg_distances, vg_indices, gam
         # If the game entered by the user doesn't exist in the records, the program will recommend a new game similar to the input
         closest_match_game_name = VideoGameTitleRecommender(video_game_name, game_names, game_name_vectors, vectorizer_name)
 
-        print(f"'{video_game_name}' doesn't exist in the records.\n")
-        print(f"You may want to try '{closest_match_game_name}', which is the closest match to the input.")
+        #print(f"'{video_game_name}' doesn't exist in the records.\n")
+        #print(f"You may want to try '{closest_match_game_name}', which is the closest match to the input.")
         out = f"'{video_game_name}' doesn't exist in the records.\n You may want to try '{closest_match_game_name}', which is the closest match to the input."
     else:
         # Place in a separate dataframe the indices and distances, then sort the record by distance in ascending order       
@@ -114,7 +114,7 @@ def VideoGameRecommender(video_game_name, df_2024, vg_distances, vg_indices, gam
         recommended_distances = np.array(vg_combined_dist_idx_df['Distance'].head(10))
 
 
-        print(f"Top 10 Recommended Video Games for '{video_game_name}'")
+        #print(f"Top 10 Recommended Video Games for '{video_game_name}'")
         plot_list = plot_list.reset_index(drop=True)
         video_game_list = video_game_list.reset_index(drop=True)
         recommended_video_game_list = pd.concat([video_game_list,plot_list, 

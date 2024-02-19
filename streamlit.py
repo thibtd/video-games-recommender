@@ -15,7 +15,6 @@ if __name__ == "__main__":
     game_names, vectorizer_name, game_name_vectors = rec.tf_idf_names(df_preproc)
     vg_distances, vg_indices = rec.load_model()
     
-    print(plots)
     st.title('Recommendation de jeux videos')
     game = st.text_input('entrer nom du jeu','Call of Duty: World at War')
     recommandation = ''
