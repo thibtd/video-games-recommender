@@ -1,9 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 import warnings
-import os
 
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import StandardScaler
