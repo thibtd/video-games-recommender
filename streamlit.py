@@ -18,6 +18,6 @@ if __name__ == "__main__":
     st.title('Recommendation de jeux videos')
     game = st.text_input('entrer nom du jeu','Call of Duty: World at War')
     recommandation = ''
-    if st.button(' reccomend!'):
+    if st.button(' recommend!'):
         recommandation = rec.VideoGameRecommender(game,df_preproc,vg_distances,vg_indices,plots,game_names,game_name_vectors,vectorizer_name)
     st.write(recommandation)
