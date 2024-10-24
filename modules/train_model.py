@@ -3,7 +3,9 @@ import numpy as np
 import pandas as pd
 
 
-def create_model(neighbors:int=11, metric:str="cosine", algo:str="auto")->NearestNeighbors:
+def create_model(
+    neighbors: int = 11, metric: str = "cosine", algo: str = "auto"
+) -> NearestNeighbors:
     """
     This function creates a NearestNeighbors model
     inputs: neighbours:int - the number of neighbours to consider
@@ -14,7 +16,8 @@ def create_model(neighbors:int=11, metric:str="cosine", algo:str="auto")->Neares
     model = NearestNeighbors(n_neighbors=neighbors, metric=metric, algorithm=algo)
     return model
 
-def train_model(model:NearestNeighbors, df:pd.DataFrame)->tuple:
+
+def train_model(model: NearestNeighbors, df: pd.DataFrame) -> tuple:
     """
     This function trains the model on the data
     inputs: model:NearestNeighbors - the model object
@@ -27,14 +30,14 @@ def train_model(model:NearestNeighbors, df:pd.DataFrame)->tuple:
     vg_distances, vg_indices = model.kneighbors(df)
     return vg_distances, vg_indices
 
-def save_model(distances:np.ndarray, indices:np.ndarray)->None:
-    """
 
-    """
+def save_model(distances: np.ndarray, indices: np.ndarray) -> None:
+    """ """
     np.save("models/vg_distances.npy", distances)
     np.save("models/vg_indices.npy", indices)
 
-def load_model()->tuple:
+
+def load_model() -> tuple:
     distances = np.load("models/vg_distances.npy")
     indices = np.load("models/vg_indices.npy")
     return distances, indices

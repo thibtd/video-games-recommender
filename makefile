@@ -9,10 +9,10 @@ test:
 	#python -m pytest -vvv --cov=tspEurope tests/test_tspEurope.py
 
 format:
-	black *.py
+	black ./**/*.py
 
 
 lint:
-	pylint --disable=R,C *.py
+	pylint --disable=R,C ./**/*.py
 
 all: install lint test format
