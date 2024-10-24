@@ -14,10 +14,19 @@ if __name__ == "__main__":
     plots, df_combined = rec.features_engineering(df_preproc)
     game_names, vectorizer_name, game_name_vectors = rec.tf_idf_names(df_preproc)
     vg_distances, vg_indices = rec.load_model()
-    
-    st.title('Recommendation de jeux videos')
-    game = st.text_input('entrer nom du jeu','Call of Duty: World at War')
-    recommandation = ''
-    if st.button(' recommend!'):
-        recommandation = rec.VideoGameRecommender(game,df_preproc,vg_distances,vg_indices,plots,game_names,game_name_vectors,vectorizer_name)
+
+    st.title("Recommendation de jeux videos")
+    game = st.text_input("entrer nom du jeu", "Call of Duty: World at War")
+    recommandation = ""
+    if st.button(" recommend!"):
+        recommandation = rec.VideoGameRecommender(
+            game,
+            df_preproc,
+            vg_distances,
+            vg_indices,
+            plots,
+            game_names,
+            game_name_vectors,
+            vectorizer_name,
+        )
     st.write(recommandation)
