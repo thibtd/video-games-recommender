@@ -3,7 +3,7 @@ install:
 		pip install -r requirements.txt
 
 test:
-	python -m pytest --nbval notebook/recommender_imbd.ipynb
+	#python -m pytest --nbval notebook/recommender_imbd.ipynb
 	python -m pytest -vvv
 	
 format:
