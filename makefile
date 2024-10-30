@@ -4,7 +4,7 @@ install:
 
 test:
 	python -m pytest --nbval notebook/recommender_imbd.ipynb
-	python -m pytest -vvvvv
+	python -m pytest -vvv
 	
 format:
 	black ./**/*.py
