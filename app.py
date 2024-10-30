@@ -28,7 +28,7 @@ if __name__ == "__main__":
     df = get_data()
     url, df = clean_data(df)
     data_display = pd.concat([url, df], axis=1)
-    vector_names = get_vectorizer(100)
+    vector_names = get_vectorizer(100,analyzer='char')
     names_vectorized = tf_idf_names(data_display["name"], vector_names)
     vg_distance, vg_indices = load_model()
 

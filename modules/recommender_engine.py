@@ -10,14 +10,21 @@ def recommend_video_game_name(
     """
     This function will recommend a game title that has the closest match to the input
     """
-    query_vector = vectorizer_name.transform([vg_name_input])
-    game_names_vectors = vectorizer_name.transform(game_names)
-    similarity_scores = cosine_similarity(query_vector, game_names_vectors)
-
-    closest_match_index = similarity_scores.argmin()
-    closest_match_game_name = game_names[closest_match_index]
-
-    return closest_match_game_name
+    print(game_names)
+    all_names = pd.concat([game_names, pd.Series([vg_name_input])], ignore_index=True)
+    # Fit the vectorizer on the combined names
+    game_names_vectors = vectorizer_name.fit_transform(all_names)
+    # Get the vector for the input game name (last one)
+    query_vector = game_names_vectors[-1]
+    # Compute cosine similarity with all other game names
+    similarity_scores = cosine_similarity(
+        query_vector, game_names_vectors[:-1]
+    ).flatten()
+    # Get the index of the most similar game
+    top_index = similarity_scores.argmax()
+    # Retrieve the closest game name
+    closest_game_name = game_names.iloc[top_index]
+    return closest_game_name
 
 
 def recommend_video_games(
@@ -70,14 +77,17 @@ def main():
     data = get_data()
     url,data_cleaned = clean_data(data)
     data_display = pd.concat([url,data_cleaned],axis=1)
-    vector_names= get_vectorizer(100)
+    vector_names= get_vectorizer(100,analyzer='char')
     vg_distance, vg_indices = load_model()
     print("---------")
     print("Recommendation")
     print("---------")
-    vg_name_input = 'Max Payne'
+    vg_name_input = 'FIFA 21'
     recommended_games = recommend_video_games(vg_name_input,data_display,vg_distance,vg_indices,vector_names)
-    print(recommended_games.head(10))"""
+    if isinstance(recommended_games, str):
+        print(recommended_games)
+    else:
+        print(recommended_games.head(10))"""
 
 
 if __name__ == "__main__":
