@@ -78,7 +78,7 @@ def main():
     vg_name_input = 'Max Payne'
     recommended_games = recommend_video_games(vg_name_input,data_display,vg_distance,vg_indices,vector_names)
     print(recommended_games.head(10))"""
-    
+
 
 if __name__ == "__main__":
     main()

@@ -136,7 +136,6 @@ def main():
     vector_names = get_vectorizer(500)
     names_tfidf = tf_idf_names(data_clean['name'],vector_names)
     print(names_tfidf.shape)"""
-    
 
 
 if __name__ == "__main__":

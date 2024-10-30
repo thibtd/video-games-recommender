@@ -13,12 +13,12 @@ def stream_data(data: pd.DataFrame):
     """
     i = 1
     for _, row in data.iterrows():
-        string_final = f"{i}. **{row['name']}** \n\r Rating: *{row['rating']}*, Genres: *{row['genres']}* \n\n {row['plot']} \n\n  Check it out on IMDb: *{row['url']}* "
+        string_final = f"{i}. **{row['name']}** \n\r Rating: *{row['rating']}*, Genres: *{row['genres']}* \n\n {row['plot']} \n\n Check it out on IMDb: *{row['url']}*"
         for word in string_final.split(" "):
             yield word + " "
             time.sleep(0.02)
         i += 1
-        yield " \n\r"
+        yield "\n\r"
 
 
 if __name__ == "__main__":

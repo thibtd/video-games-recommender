@@ -8,7 +8,8 @@ def make_data():
     data = get_data()
     _, data = clean_data(data)
     vector_plot = get_vectorizer(1000)
-    return feature_engineering(data,vector_plot)
+    return feature_engineering(data, vector_plot)
+
 
 def test_create_model():
     algo = "auto"

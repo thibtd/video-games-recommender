@@ -37,5 +37,5 @@ def test_tf_idf_names():
     data = get_data()
     _, data_clean = clean_data(data)
     vector_name = get_vectorizer(1000)
-    names_tfidf = tf_idf_names(data_clean["name"],vector_name)
+    names_tfidf = tf_idf_names(data_clean["name"], vector_name)
     assert names_tfidf.shape == (10944, 1000), "names tfidf shape is not correct"
