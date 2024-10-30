@@ -1,6 +1,6 @@
 # Video game recommender
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://tspgreedy.streamlit.app/) [![Makefile CI](https://github.com/thibtd/video-games-recommender/actions/workflows/MakefileCI.yml/badge.svg)](https://github.com/thibtd/video-games-recommender/actions/workflows/MakefileCI.yml)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://findnewgames.streamlit.app) [![Makefile CI](https://github.com/thibtd/video-games-recommender/actions/workflows/MakefileCI.yml/badge.svg)](https://github.com/thibtd/video-games-recommender/actions/workflows/MakefileCI.yml)
 
 
 ### Summary of the App
